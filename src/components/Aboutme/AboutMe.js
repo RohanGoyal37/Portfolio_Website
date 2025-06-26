@@ -99,12 +99,12 @@ const AboutMe = () => {
             </div>
             <div className="about-me-content">
               <p className="about-me-introduction">
-                Hey there! I'm Rohan Goyal, a passionate Data Analyst with over
-                3 years of experience. 📊 I love diving into complex data and
-                uncovering hidden insights that drive impactful decisions. 🚀
+                Hey there! I'm Rohan Goyal, a dedicated Python Developer and Data Analyst with over 
+                3 years of experience. 🐍📊 I thrive on exploring complex datasets, uncovering patterns,
+                and translating data into actionable insights that drive meaningful outcomes. 🚀
               </p>
               <p className="about-me-introduction">
-                When I'm not crunching numbers, you can find me behind the
+                When I’m not deep in data or writing code, you can find me behind the
                 camera, capturing life's moments through my lens. 📸 I'm also a
                 big fan of hitting the open road on my bike, feeling the wind in
                 my hair, and exploring new places. 🚴‍♂️
