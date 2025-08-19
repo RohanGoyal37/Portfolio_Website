@@ -106,7 +106,7 @@ function Home() {
       {/* Social Icons at the Bottom */}
       <div className="social-icons" aria-label="Social media links">
         <a
-          href="https://www.facebook.com/Rohangoyal2616"
+          href="https://www.facebook.com/RohannGoyal37"
           target="_blank"
           rel="noopener noreferrer"
           className="social-icon facebook"
@@ -115,7 +115,7 @@ function Home() {
           <FaFacebook size={30} />
         </a>
         <a
-          href="https://github.com/37rohan"
+          href="https://github.com/RohanGoyal37"
           target="_blank"
           rel="noopener noreferrer"
           className="social-icon github"
@@ -124,7 +124,7 @@ function Home() {
           <FaGithub size={30} /> {/* Requires importing FaGithub from react-icons/fa6 */}
         </a>
         <a
-          href="https://x.com/aggarwalrohan37"
+          href="https://x.com/RohanGoyal37"
           target="_blank"
           rel="noopener noreferrer"
           className="social-icon x-icon"
@@ -142,7 +142,7 @@ function Home() {
           <FaInstagram size={30} />
         </a>
         <a
-          href="https://www.linkedin.com/in/goyal-rohan"
+          href="https://www.linkedin.com/in/rohan-agarwal37"
           target="_blank"
           rel="noopener noreferrer"
           className="social-icon linkedin"

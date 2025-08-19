@@ -97,7 +97,7 @@ const Contact = () => {
             <div className="map-container">
               <iframe
                 title="Google Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.348679014678!2d75.7228760748932!3d26.860660962326524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db528a76be157%3A0x6ec1f70a7a7a603a!2sAjay%20Deep%20Garg%2C%20R-152%2C%20R-152%2C%20Narayan%20Vihar%2C%20R-%20Block%2C%20Narayan%20Vihar%2C%20Jaipur%2C%20Rajasthan%20302020!5e0!3m2!1sen!2sin!4v1738776377725!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.4360167245!2d75.62573958925047!3d26.88542139428822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1755587389631!5m2!1sen!2sin"
                 width="100%"
                 height="300"
                 style={{ border: "0" }}
@@ -111,8 +111,7 @@ const Contact = () => {
                 <FaMapMarkerAlt className="contact-icon" />
                 <div className="contact-info-text">
                   <h4>Address</h4>
-                  <p>R-152, Narayan Vihar,</p>
-                  <p>Gopalpura Byepass Jaipur, Rajasthan, 302020</p>
+                  <p>Jaipur, Rajasthan, 302020</p>
                 </div>
               </div>
               <div className="contact-info-item">
@@ -217,7 +216,7 @@ const Contact = () => {
             }}
           >
             <a
-              href="https://www.facebook.com/Rohangoyal2616"
+              href="https://www.facebook.com/RohannGoyal37"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon facebook"
@@ -226,22 +225,22 @@ const Contact = () => {
               <FaFacebook size={30} />
             </a>
             <a
-              href="https://github.com/37rohan"
+              href="https://github.com/RohanGoyal37"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon github"
               aria-label="GitHub profile"
             >
-              <FaGithub size={30} />
+              <FaGithub size={30} /> {/* Requires importing FaGithub from react-icons/fa6 */}
             </a>
             <a
-              href="https://x.com/aggarwalrohan37"
+              href="https://x.com/RohanGoyal37"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon x-icon"
-              aria-label="X (Twitter) profile"
+              aria-label="X profile"
             >
-              <FaXTwitter size={30} />
+              <FaXTwitter size={30} /> {/* X Twitter logo */}
             </a>
             <a
               href="https://instagram.com/rohan_agarwal_37"
@@ -253,7 +252,7 @@ const Contact = () => {
               <FaInstagram size={30} />
             </a>
             <a
-              href="https://www.linkedin.com/in/goyal-rohan"
+              href="https://www.linkedin.com/in/rohan-agarwal37"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon linkedin"
