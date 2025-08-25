@@ -1,90 +1,183 @@
-import React, { useState, useEffect } from "react";
-import projects from "./projects.json";
-import "./ProjectsSection.css";
-import { BsGlobe, BsBoxes } from "react-icons/bs";
-import { MdHomeWork } from "react-icons/md";
-import { FaCalculator, FaCode } from "react-icons/fa6";
-import { GiThink } from "react-icons/gi";
-import { SiGoogleanalytics } from "react-icons/si";
-import { FaCloudShowersHeavy, FaCar, FaClipboardCheck, FaGamepad, FaWpforms, FaRibbon } from "react-icons/fa";
 
-// Helper function to split the array into chunks of a given size.
-const chunkArray = (arr, chunkSize) => {
-  const chunks = [];
-  for (let i = 0; i < arr.length; i += chunkSize) {
-    chunks.push(arr.slice(i, i + chunkSize));
-  }
-  return chunks;
-};
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+// Custom Masonry layout for true column control
+import projects from "./projects.json";
+import { FaCode, FaExternalLinkAlt } from "react-icons/fa";
+import "./ProjectsSection.css";
+
+// Placeholder images for demo (using picsum.photos for reliability)
+const placeholderImages = [
+  "https://picsum.photos/400/600?random=1",
+  "https://picsum.photos/600/400?random=2",
+  "https://picsum.photos/400/400?random=3",
+  "https://picsum.photos/400/600?random=4",
+  "https://picsum.photos/600/400?random=5",
+  "https://picsum.photos/400/400?random=6",
+  "https://picsum.photos/400/600?random=7",
+  "https://picsum.photos/400/400?random=8",
+  "https://picsum.photos/600/400?random=9",
+];
 
 const ProjectsSection = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const rotations = [-21, 7, 25];
-  const icons = [
-    <BsGlobe />,
-    <FaCar />,
-    <MdHomeWork />,
-    <FaCalculator />,
-    <GiThink />,
-    <FaCloudShowersHeavy />,
-    <SiGoogleanalytics />,
-    <FaClipboardCheck />,
-    <FaGamepad />,
-    <FaWpforms />,
-    <FaRibbon />,
-    <BsBoxes />,
-  ];
-  const projectRows = chunkArray(projects, 3);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3500);
-    return () => clearTimeout(timer);
+  const [activeFilter, setActiveFilter] = useState("All");
+  // Dynamically generate unique categories from projects.json
+  const categories = React.useMemo(() => {
+    const cats = projects
+      .map(p => p.category && p.category.trim())
+      .filter(Boolean);
+    // Remove duplicates and sort alphabetically
+    const unique = Array.from(new Set(cats)).sort((a, b) => a.localeCompare(b));
+    return ["All", ...unique];
   }, []);
+
+
+  // Shuffle array utility
+  function shuffleArray(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+
+  // Randomly assign 'tall' to a subset of projects for each render, then shuffle again
+  function assignRandomTallAndShuffle(projectsArr, tallCount = 3) {
+    const arr = shuffleArray(projectsArr);
+    const result = arr.map((p, idx) => ({ ...p, size: 'square' }));
+    // Pick random indices for 'tall'
+    const indices = shuffleArray([...Array(arr.length).keys()]).slice(0, Math.min(tallCount, arr.length));
+    indices.forEach(i => {
+      result[i].size = 'tall';
+    });
+    // Shuffle again to mix tall and square
+    return shuffleArray(result);
+  }
+
+  // Filter, assign 'tall', and shuffle again
+  const filteredProjects = assignRandomTallAndShuffle(
+    activeFilter === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeFilter),
+    3 // Number of tall cards per render (adjust as needed)
+  );
+
+
+  // Responsive column count
+  function getColumnCount() {
+    if (typeof window === 'undefined') return 3;
+    if (window.innerWidth < 700) return 1;
+    if (window.innerWidth < 1100) return 2;
+    return 3;
+  }
+
+  const [columns, setColumns] = React.useState(getColumnCount());
+  React.useEffect(() => {
+    function handleResize() {
+      setColumns(getColumnCount());
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Distribute cards into columns for a mixed look
+  function distributeToColumns(cards, colCount) {
+    const cols = Array.from({ length: colCount }, () => []);
+    cards.forEach((card, idx) => {
+      cols[idx % colCount].push(card);
+    });
+    return cols;
+  }
+
+  const columnsArray = distributeToColumns(filteredProjects, columns);
 
   return (
     <section className="projects-section">
-      {isLoading ? (
-        <div className="loading-container">
-          <div className="bouncing-ball" />
-        </div>
-      ) : (
-        <>
-          <h2 className="projects-heading">Projects</h2>
-          {projectRows.map((row, rowIndex) => (
-            <div key={rowIndex} className="row">
-              {row.map((project, index) => {
-                const rotationValue = rotations[index] ?? 0;
-                const icon = icons[rowIndex * 3 + index] ?? <GiThink />;
-                const delay = (rowIndex * 3 + index) * 0.1; // Staggered delay
-
-                return (
-                  <div
-                    key={project.name + index}
-                    className="glass"
-                    data-text={project.name}
-                    style={{
-                      "--r": rotationValue,
-                      "--delay": `${delay}s`,
-                    }}
-                  >
-                    <div className="card-content">
-                      <h3 className="project-icon">{icon}</h3>
+      <div className="section-intro">
+        <motion.h2
+          className="projects-heading"
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.25, 1, 0.5, 1],
+          }}
+        >
+          <span className="bulb-glow" role="img" aria-label="bulb">💡</span>
+          <span className="shimmer-text"> My Creative Works</span>
+        </motion.h2>
+        <p className="projects-subheading">
+          A collection of projects where I experimented, built, and learned.
+        </p>
+      </div>
+      <div className="projects-filters">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            className={`filter-btn${activeFilter === cat ? " active" : ""}`}
+            onClick={() => setActiveFilter(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+      <div className="masonry-grid">
+        {columnsArray.map((col, colIdx) => (
+          <div className="masonry-grid_column" key={colIdx}>
+            {col.map((project, idx) => (
+              <div
+                key={project.name}
+                className={`project-card${project.size === 'tall' ? ' project-tall' : ''}`}
+                style={{
+                  animationDelay: `${(colIdx * col.length + idx) * 0.08}s`,
+                  minHeight: project.size === 'tall' ? 400 : 260
+                }}
+              >
+                <div className="project-img-wrapper">
+                  <img
+                    src={placeholderImages[(colIdx * col.length + idx) % placeholderImages.length]}
+                    alt={project.name}
+                    className="project-img"
+                  />
+                  <div className="project-overlay">
+                    <div className="overlay-content">
+                      <h3 className="project-title">{project.name}</h3>
+                      <p className="project-tagline">{project.description}</p>
+                      <div className="project-tech">
+                        {project.technologies.map((tech, i) => (
+                          <span key={i} className="tech-badge">{tech}</span>
+                        ))}
+                      </div>
+                      <div className="project-btns">
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-btn"
+                        >
+                          <FaCode /> Code
+                        </a>
+                        {project.demo && (
+                          <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="project-btn"
+                          >
+                            <FaExternalLinkAlt /> Live Demo
+                          </a>
+                        )}
+                      </div>
                     </div>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="code-icon-link"
-                    >
-                      <FaCode className="code-icon" />
-                    </a>
                   </div>
-                );
-              })}
-            </div>
-          ))}
-        </>
-      )}
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

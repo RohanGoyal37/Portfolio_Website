@@ -1,28 +1,209 @@
+
 .projects-section {
-  padding: 2rem;
-  padding-top: 32px; /* Extra top padding to offset the navbar */
-  background: var(--bg-color); /* Ensure this CSS variable is defined */
+  padding: 2rem 0;
+  background: var(--bg-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Heading style */
+.section-intro {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+
 .projects-heading {
   font-size: 2.8rem;
   font-weight: 700;
-  margin-bottom: 40px;
-  background: linear-gradient(90deg, var(--accent-color), var(--accent-color));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
   display: inline-block;
   position: relative;
   text-align: center;
   width: 100%;
-  animation: fadeIn 1s ease-in-out forwards;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: unset;
 }
+
+/* Animated gradient text */
+.gradient-animate {
+  background: linear-gradient(270deg, #ffb347, #ff5e62, #6a82fb, #fc5c7d, #43cea2, #185a9d, #ffb347);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.projects-subheading {
+  font-size: 1.2rem;
+  color: var(--text-color-secondary, #888);
+  margin-bottom: 1.5rem;
+}
+
+.projects-filters {
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 2.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  background: none;
+  border: 1.5px solid var(--accent-color, #6c63ff);
+  color: var(--accent-color, #6c63ff);
+  padding: 0.4rem 1.1rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--accent-color, #6c63ff);
+  color: #fff;
+}
+
+
+.masonry-grid {
+  display: flex;
+  margin-left: -1.5rem; /* gutter size offset */
+  width: 100%;
+  max-width: 1100px;
+}
+
+.masonry-grid_column {
+  padding-left: 1.5rem; /* gutter size */
+  background-clip: padding-box;
+}
+
+.masonry-grid_column > .project-card {
+  margin-bottom: 1.5rem;
+}
+
+
+.project-card:hover {
+  transform: scale(1.045) translateY(-6px);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+  z-index: 2;
+}
+
+.project-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.13);
+  background: var(--project-card, #fff);
+  cursor: pointer;
+  animation: fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) both;
+  transition: transform 0.25s cubic-bezier(.23,1.01,.32,1), box-shadow 0.25s;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-tall {
+  min-height: 400px !important;
+}
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(.23,1.01,.32,1);
+}
+.project-card:hover .project-img {
+  transform: scale(1.08);
+  filter: brightness(0.7);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(20, 20, 30, 0.78);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s cubic-bezier(.23,1.01,.32,1);
+  pointer-events: none;
+}
+.project-card:hover .project-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay-content {
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem 0.7rem;
+  width: 100%;
+}
+.project-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.project-tagline {
+  font-size: 1rem;
+  margin-bottom: 1.1rem;
+  color: #e0e0e0;
+}
+.project-btns {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+}
+.project-btn {
+  background: #fff;
+  color: var(--accent-color, #6c63ff);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.4rem 1.1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+  transition: background 0.2s, color 0.2s;
+}
+.project-btn:hover {
+  background: var(--accent-color, #6c63ff);
+  color: #fff;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
 
 /* Row container for each set of three cards */
 .row {
@@ -240,4 +421,52 @@
   .glass svg {
     font-size: 1.8em;
   }
+}
+
+.project-tech {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;  /* ✅ centers the badges */
+}
+
+.tech-badge {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+
+/* Shimmer sweep on heading */
+.shimmer-text {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #ff8a00, #e52e71, #9b51e0, #43cea2);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerMove 4s linear infinite;
+}
+
+@keyframes shimmerMove {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Softer but brighter bulb glow */
+.bulb-glow {
+  display: inline-block;
+  margin-right: 0.6rem;
+  filter: drop-shadow(0 0 6px #ffd43b) drop-shadow(0 0 14px #ffd43b88);
+  animation: bulbPulse 2s infinite alternate;
+}
+
+@keyframes bulbPulse {
+  0% { filter: drop-shadow(0 0 8px #ffd43b) drop-shadow(0 0 18px #ffd43b66); }
+  100% { filter: drop-shadow(0 0 14px #ffd43b) drop-shadow(0 0 28px #ffd43b99); }
 }
