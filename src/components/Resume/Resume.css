@@ -168,62 +168,6 @@ body {
   height: 30px;
 }
 
-/* Loading Container */
-.loading-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--bg-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* Bouncing Ball Styles */
-.bouncing-ball {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: var(--accent-color);
-  animation: bounce-in 2s ease-in-out 2, expand-out 1.5s 2s forwards;
-}
-
-/* Bounce Animation */
-@keyframes bounce-in {
-  0% {
-    transform: scale(0) translateY(-100px);
-    opacity: 1;
-  }
-  25% {
-    transform: scale(1.2) translateY(-20px);
-  }
-  50% {
-    transform: scale(1) translateY(0);
-  }
-  75% {
-    transform: scale(1.2) translateY(-10px);
-  }
-  100% {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Expand Animation */
-@keyframes expand-out {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(30);
-    opacity: 0;
-  }
-}
-
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .resume-title {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
@@ -11,18 +11,6 @@ const AboutMe = () => {
   const { isDarkTheme } = useContext(ThemeContext);
   const profileImg = isDarkTheme ? profileDark : profileLight;
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  // Loading animation effect
-  useEffect(() => {
-    document.body.classList.add("loading");
-    setTimeout(() => {
-      setIsLoading(false);
-      setIsLoaded(true);
-      document.body.classList.remove("loading");
-    }, 3000);
-  }, []);
 
   const handleResume = () => {
     navigate("/resume");
@@ -46,11 +34,8 @@ const AboutMe = () => {
 
   return (
     <section className="about-me-section">
-      {/* Loading Animation */}
-      {isLoading && <div className={`loader-ball ${isLoaded ? "expand" : ""}`}></div>}
 
       {/* About Me Content */}
-      {!isLoading && (
         <motion.div
           className="about-me-card glassmorphism"
           variants={containerVariants}
@@ -155,7 +140,6 @@ const AboutMe = () => {
             </motion.div>
           </div>
         </motion.div>
-      )}
     </section>
   );
 };

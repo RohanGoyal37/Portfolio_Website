@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useMemo } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import {
   FaFacebook,
@@ -21,11 +21,9 @@ function Home() {
   const [text, setText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   const textArray = useMemo(
-    () => ["Data Analyst", "Python Developer", "PhotoGrapher"],
+    () => ["Data Analyst", "Python Developer", "Photographer"],
     []
   );
 
@@ -33,16 +31,6 @@ function Home() {
     triggerOnce: true,
     threshold: 0.5,
   });
-
-  // Effect to handle the initial loading animation
-  useEffect(() => {
-    document.body.classList.add("loading");
-    setTimeout(() => {
-      setIsLoading(false);
-      setIsLoaded(true);
-      document.body.classList.remove("loading");
-    }, 3000); // Adjust this based on your loading animation duration
-  }, []);
 
   // Typing effect for the text array
   useEffect(() => {
@@ -79,16 +67,11 @@ function Home() {
 
       {/* Centralized Text Content */}
       <div className="home-content">
-        {/* Loading Animation */}
-        {isLoading && (
-          <div className={`loader-ball ${isLoaded ? "expand" : ""}`}></div>
-        )}
-
-        <div
-          className={`home-text ${isLoaded ? "content-visible" : "hidden-content"}`}
-        >
+        <div className="home-text">
           <p>Hello, I'm</p>
-          <h1 id="home-title">Rohan Goyal<span>.</span> </h1>
+          <h1 id="home-title">
+            Rohan Goyal<span>.</span>
+          </h1>
           <h2>
             <span>{text}</span>
           </h2>
@@ -121,7 +104,7 @@ function Home() {
           className="social-icon github"
           aria-label="GitHub profile"
         >
-          <FaGithub size={30} /> {/* Requires importing FaGithub from react-icons/fa6 */}
+          <FaGithub size={30} />
         </a>
         <a
           href="https://x.com/RohanGoyal37"
@@ -130,7 +113,7 @@ function Home() {
           className="social-icon x-icon"
           aria-label="X profile"
         >
-          <FaXTwitter size={30} /> {/* X Twitter logo */}
+          <FaXTwitter size={30} />
         </a>
         <a
           href="https://instagram.com/rohan_agarwal_37"
