@@ -3,6 +3,10 @@ body {
   overflow-x: hidden;
 }
 
+.flip-page {
+  will-change: transform, opacity;
+}
+
 /* Resume Page Styles */
 .resume-container {
   padding: 0px 20px 40px;

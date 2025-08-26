@@ -1,5 +1,5 @@
 // App.js
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import About from "./components/Aboutme/AboutMe";
@@ -11,15 +11,33 @@ import Projects from "./components/Projects/Projects";
 import Education from "./components/Education/Education"; // Import the new Education component
 // import Footer from "./components/Footer";
 import Navbar from "./components/Navbar/Navbar";
-import { ThemeProvider } from "./components/ParticleBackground/ThemeContext";
+import { ThemeProvider, ThemeContext } from "./components/ParticleBackground/ThemeContext";
+import { AnimatePresence, motion } from "framer-motion";
 import "./App.css";
 
-const App = () => {
+
+const AppContent = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const { isDarkTheme } = useContext(ThemeContext);
+
+  // Animation for theme change (light flash/scale)
+  const themeVariants = {
+    initial: { opacity: 0, scale: 0.98, filter: "brightness(1.2)" },
+    animate: { opacity: 1, scale: 1, filter: "brightness(1)" },
+    exit: { opacity: 0, scale: 1.02, filter: "brightness(1.3)" },
+  };
 
   return (
-    <ThemeProvider>
-      <Router>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={isDarkTheme ? "dark" : "light"}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={themeVariants}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        style={{ minHeight: "100vh" }}
+      >
         <div className="App">
           <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
           <div className="content-section">
@@ -36,9 +54,17 @@ const App = () => {
           </div>
           {/* <Footer /> */}
         </div>
-      </Router>
-    </ThemeProvider>
+      </motion.div>
+    </AnimatePresence>
   );
 };
+
+const App = () => (
+  <ThemeProvider>
+    <Router>
+      <AppContent />
+    </Router>
+  </ThemeProvider>
+);
 
 export default App;

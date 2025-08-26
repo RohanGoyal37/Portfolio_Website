@@ -39,6 +39,12 @@ const Resume = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const transition = prefersReducedMotion
+    ? { duration: 0 }
+    : { duration: 0.6, ease: "easeInOut" };
+
+
   return (
     <div className="resume-container">
       <h1 className="resume-title">My Resume</h1>
@@ -51,6 +57,11 @@ const Resume = () => {
           <div className="pdf-container">
             <Document
               file={`${process.env.PUBLIC_URL}/Rohan_Goyal2.pdf`}
+              loading={
+                <div className="loading-container">
+                  <div className="bouncing-ball"></div>
+                </div>
+              }
               onLoadSuccess={({ numPages }) => {
                 // Still set numPages for pagination
                 setNumPages(numPages);
@@ -65,7 +76,7 @@ const Resume = () => {
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  transition={transition}
                   className="flip-page"
                 >
                   <Page pageNumber={currentPage} scale={1.8} />
