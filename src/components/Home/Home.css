@@ -4,7 +4,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +58,7 @@ h1 span {
 
 /* Typewriter Effect Text */
 .home-text h2 span {
-  color: #d136ca; /* Changed typewriter effect text color */
+  color: var(--accent-color); /* Changed typewriter effect text color */
   font-weight: bold;
 }
 
@@ -70,20 +71,24 @@ h1 span {
   display: flex;
   justify-content: center;
   gap: 10px;
+  max-width: 100%;
+  flex-wrap: nowrap;
+  overflow: hidden;   
 }
 
 /* Styling for individual icons */
 .social-icons a {
   font-size: 2rem;
+  padding: 12px;
   color: white;
   border: 2px solid transparent;
   border-radius: 50%;
-  padding: 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background-color: transparent;
   transition: all 0.3s ease;
+  line-height: 1;
 }
 
 /* Social icons in light theme should have black color */
@@ -171,7 +176,24 @@ body.dark-theme .linkedin:hover {
   }
 
   .social-icons a {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     padding: 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .social-icons a {
+    font-size: 1.5rem;  /* ✅ shrink further */
+    padding: 8px;
+  }
+}
+
+/* Disable hover effects on mobile */
+@media (hover: none) {
+  .home-text button:hover {
+    transform: none;
+    background-color: #d136ca;
+    color: white;
   }
 }
