@@ -1,6 +1,6 @@
 # Rohan Goyal's Portfolio
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-React-blue)](https://this-is-rohan-goyal.vercel.app/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-React-blue)](https://rohangoyal.vercel.app/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![LinkedIn](https://img.shields.io/badge/Connect-LinkedIn-blue)](https://linkedin.com/in/rohan-agarwal37)
 ---
@@ -28,7 +28,7 @@ Welcome to **Rohan Goyal's Portfolio** – a unique blend of technical expertise
 
 ## 🌐 Demo
 
-Explore the live portfolio [here](https://this-is-rohan-goyal.vercel.app/).
+Explore the live portfolio [here](https://rohangoyal.vercel.app/).
 
 ## 💻 Technologies Used
 
@@ -81,4 +81,4 @@ Contributions are welcome! If you have any suggestions or improvements, feel fre
 
 ## 📬 Contact
 
-Feel free to reach out via [email](https://this-is-rohan-goyal.vercel.app/connect) or connect with me on [LinkedIn](https://linkedin.com/in/rohan-agarwal37).
+Feel free to reach out via [email](https://rohangoyal.vercel.app/connect) or connect with me on [LinkedIn](https://linkedin.com/in/rohan-agarwal37).
