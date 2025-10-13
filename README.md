@@ -1,7 +1,7 @@
 # Rohan Goyal's Portfolio
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-React-blue)](https://rohangoyal.vercel.app/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![License](https://img.shields.io/badge/License-Custom-lightgrey)](LICENSE)
 [![LinkedIn](https://img.shields.io/badge/Connect-LinkedIn-blue)](https://linkedin.com/in/rohan-agarwal37)
 ---
 
@@ -25,10 +25,23 @@ Welcome to **Rohan Goyal's Portfolio** – a unique blend of technical expertise
 - [📑 Sections Overview](#-sections-overview)
 - [🤝 Contributing](#-contributing)
 - [📬 Contact](#-contact)
+- [⚖️ License](#️-license)
 
 ## 🌐 Demo
 
 Explore the live portfolio [here](https://rohangoyal.vercel.app/).
+
+
+## ⚖️ License
+
+This project is licensed under a **custom license**:
+
+- You may use, modify, or distribute this code for **personal learning, experimentation, or non-commercial projects only**.
+- **Forking the repository is strongly encouraged** if you wish to modify or extend the code. Directly downloading and modifying without proper attribution or reference to the original repository is discouraged.
+- **Any derivative work or public use must provide clear attribution** to the original author (Rohan Goyal) and include a link to the original repository.
+- **Commercial use is prohibited** without explicit written consent from the author.
+
+For full details, see the [LICENSE](LICENSE) file.
 
 ## 💻 Technologies Used
 
