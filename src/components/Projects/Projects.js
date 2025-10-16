@@ -6,18 +6,6 @@ import projects from "./projects.json";
 import { FaCode, FaExternalLinkAlt } from "react-icons/fa";
 import "./ProjectsSection.css";
 
-// Placeholder images for demo (using picsum.photos for reliability)
-const placeholderImages = [
-  "https://picsum.photos/400/600?random=1",
-  "https://picsum.photos/600/400?random=2",
-  "https://picsum.photos/400/400?random=3",
-  "https://picsum.photos/400/600?random=4",
-  "https://picsum.photos/600/400?random=5",
-  "https://picsum.photos/400/400?random=6",
-  "https://picsum.photos/400/600?random=7",
-  "https://picsum.photos/400/400?random=8",
-  "https://picsum.photos/600/400?random=9",
-];
 
 const ProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -129,15 +117,14 @@ const ProjectsSection = () => {
             {col.map((project, idx) => (
               <div
                 key={project.name}
-                className={`project-card${project.size === 'tall' ? ' project-tall' : ''}`}
+                className="project-card"
                 style={{
-                  animationDelay: `${(colIdx * col.length + idx) * 0.08}s`,
-                  minHeight: project.size === 'tall' ? 400 : 260
+                  animationDelay: `${(colIdx * col.length + idx) * 0.08}s`
                 }}
               >
                 <div className="project-img-wrapper">
                   <img
-                    src={placeholderImages[(colIdx * col.length + idx) % placeholderImages.length]}
+                    src={project.image ?? process.env.PUBLIC_URL + "/projects/default.png"}
                     alt={project.name}
                     className="project-img"
                   />

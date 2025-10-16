@@ -1,111 +1,205 @@
 [
   {
+    "name": "AYRA - AI Voice Assistant",
+    "link": "https://github.com/rohangoyal37/ayra",
+    "linkType": "View Code",
+    "description": "Advanced cross-platform voice assistant with AI-powered conversational intelligence. Features hybrid NLP intent classification, multi-engine speech recognition, and seamless integration with Google's Gemini Pro for natural conversations.",
+    "technologies": [
+      "Python",
+      "Google Gemini AI",
+      "TensorFlow",
+      "scikit-learn",
+      "Speech Recognition",
+      "NLP",
+      "PyAudio"
+    ],
+    "size": "tall",
+    "category": "AI/ML",
+    "image": "/projects/Ayra.png"
+  },
+  {
+    "name": "Blog Platform",
+    "link": "https://github.com/RohanGoyal37/Blog_Platform",
+    "linkType": "View Code",
+    "description": "A full-stack blogging website for creating, editing, and sharing posts with user authentication and comment functionality.",
+    "technologies": [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "size": "square",
+    "category": "Web Dev",
+    "image": "/projects/blogging_website.png"
+  },
+  {
     "name": "Portfolio Website",
     "link": "https://github.com/RohanGoyal37/Portfolio_Website",
     "linkType": "View Code",
     "description": "Personal portfolio website to showcase my projects, skills, and experience. Built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"],
+    "technologies": [
+      "React",
+      "TypeScript",
+      "CSS",
+      "HTML"
+    ],
     "size": "tall",
     "demo": "https://this-is-rohan-goyal.vercel.app/",
-    "category": "Web Apps"
+    "category": "Web Dev",
+    "image": "/projects/portfolio.png"
   },
   {
     "name": "Used Car Price Prediction",
     "link": "https://github.com/RohanGoyal37/Used_Car_Price_Prediction",
     "linkType": "View Code",
     "description": "Machine learning project to predict used car prices based on various features using regression models.",
-    "technologies": ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+    "technologies": [
+      "Python",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Matplotlib"
+    ],
     "size": "wide",
-    "category": "AI/ML"
+    "category": "AI/ML",
+    "image": "/projects/used_car_model.png"
   },
   {
     "name": "Housing Analysis in Brazil",
     "link": "https://github.com/RohanGoyal37/Housing-in-Brazil",
     "linkType": "View Code",
     "description": "Data analysis project exploring housing trends and prices in Brazil using Python and visualization libraries.",
-    "technologies": ["Python", "Pandas", "Matplotlib", "Seaborn"],
+    "technologies": [
+      "Python",
+      "Pandas",
+      "Matplotlib",
+      "Seaborn"
+    ],
     "size": "square",
-    "category": "Data Analytics"
+    "category": "Data Analytics",
+    "image": "/projects/housing_in_brazil.png"
   },
   {
     "name": "Faulty Calculator",
     "link": "https://github.com/RohanGoyal37/Faulty_Calculator",
     "linkType": "View Code",
     "description": "A fun calculator app that sometimes gives incorrect results on purpose, built with Python.",
-    "technologies": ["Python"],
+    "technologies": [
+      "Python"
+    ],
     "size": "tall",
-    "category": "Fun"
+    "category": "Fun",
+    "image": null
   },
   {
     "name": "Guessing a Number",
     "link": "https://github.com/RohanGoyal37/Guessing_a_Number",
     "linkType": "View Code",
     "description": "A simple number guessing game implemented in Python for practicing logic and loops.",
-    "technologies": ["Python"],
+    "technologies": [
+      "Python"
+    ],
     "size": "wide",
-    "category": "Fun"
+    "category": "Fun",
+    "image": "/projects/guess_number.png"
   },
   {
     "name": "Weather Info",
     "link": "https://github.com/RohanGoyal37/Weather_App",
     "linkType": "View Code",
     "description": "A React app that fetches and displays real-time weather information for any city.",
-    "technologies": ["Python", "OpenWeather API"],
+    "technologies": [
+      "Python",
+      "OpenWeather API"
+    ],
     "size": "square",
-    "category": "Automation & Scripts"
+    "category": "Automation & Scripts",
+    "image": "/projects/weather.png"
   },
   {
     "name": "Olympic Analysis",
     "link": "https://github.com/RohanGoyal37/Olympic_Analysis",
     "linkType": "View Code",
     "description": "Data analysis and visualization of Olympic Games statistics using Python and Pandas.",
-    "technologies": ["Python", "Pandas", "Matplotlib", "Seaborn"],
+    "technologies": [
+      "Python",
+      "Pandas",
+      "Matplotlib",
+      "Seaborn"
+    ],
     "size": "tall",
-    "category": "Data Analytics"
+    "category": "Data Analytics",
+    "image": "/projects/olympics_analysis.png"
   },
   {
     "name": "Text Summarizer",
     "link": "https://github.com/RohanGoyal37/Text_Summarizer",
     "linkType": "View Code",
     "description": "A tool that uses NLP techniques to automatically summarize long pieces of text.",
-    "technologies": ["Python", "NLTK", "Scikit-learn", "NLU"],
+    "technologies": [
+      "Python",
+      "NLTK",
+      "Scikit-learn",
+      "NLU"
+    ],
     "size": "square",
-    "category": "AI/ML"
+    "category": "AI/ML",
+    "image": "/projects/ai_summary.png"
   },
   {
     "name": "Snake Water Gun Game",
     "link": "https://github.com/RohanGoyal37/Snake_Water_Gun_Game",
     "linkType": "View Code",
     "description": "A Python implementation of the classic Snake Water Gun game (like Rock Paper Scissors).",
-    "technologies": ["Python"],
+    "technologies": [
+      "Python"
+    ],
     "size": "tall",
-    "category": "Fun"
+    "category": "Fun",
+    "image": "/projects/snake_water_gun.png"
   },
   {
     "name": "Dynamic Student Enrollment Form",
     "link": "https://github.com/RohanGoyal37/Dynamic_Student_Enrollment_Form",
     "linkType": "View Code",
     "description": "A dynamic React form for enrolling students, featuring validation and real-time feedback.",
-    "technologies": ["JavaScript", "CSS", "HTML", "JsonPower DB"],
+    "technologies": [
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "JsonPower DB"
+    ],
     "size": "square",
-    "category": "Web Apps"
+    "category": "Web Dev",
+    "image": "/projects/student_form.png"
   },
   {
     "name": "Breast Cancer Prediction",
     "link": "https://github.com/RohanGoyal37/Breast_Cancer_Prediction",
     "linkType": "View Code",
     "description": "A machine learning project to predict breast cancer using classification algorithms.",
-    "technologies": ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+    "technologies": [
+      "Python",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Matplotlib"
+    ],
     "size": "wide",
-    "category": "AI/ML"
+    "category": "AI/ML",
+    "image": "/projects/breast_cancer.png"
   },
   {
     "name": "Inventory Management System",
     "link": "https://github.com/RohanGoyal37/Inventory_Management_System",
     "linkType": "View Code",
     "description": "A web-based inventory management system to track products, stock, and orders.",
-    "technologies": ["Python", "JSON"],
+    "technologies": [
+      "Python",
+      "JSON"
+    ],
     "size": "square",
-    "category": "Automation & Scripts"
+    "category": "Automation & Scripts",
+    "image": "/projects/IMS.png"
   }
 ]
