@@ -3,15 +3,14 @@
     "name": "AYRA - AI Voice Assistant",
     "link": "https://github.com/rohangoyal37/ayra",
     "linkType": "View Code",
-    "description": "Advanced cross-platform voice assistant with AI-powered conversational intelligence. Features hybrid NLP intent classification, multi-engine speech recognition, and seamless integration with Google's Gemini Pro for natural conversations.",
+    "description": "AYRA is an intelligent AI voice assistant with hybrid NLP intent recognition and multi-engine speech processing. It integrates with Google's Gemini Pro for natural, human-like conversational responses",
     "technologies": [
       "Python",
       "Google Gemini AI",
       "TensorFlow",
       "scikit-learn",
       "Speech Recognition",
-      "NLP",
-      "PyAudio"
+      "NLP"
     ],
     "size": "tall",
     "category": "AI/ML",
@@ -201,5 +200,22 @@
     "size": "square",
     "category": "Automation & Scripts",
     "image": "/projects/IMS.png"
+  },
+  {
+    "name": "Textify",
+    "link": "https://github.com/RohanGoyal37/Textify",
+    "linkType": "View Code",
+    "description": "Textify is a simple Django web app that helps you clean and format text quickly. Perform actions like removing punctuation, converting to uppercase, trimming spaces, and counting characters in one click.",
+    "technologies": [
+      "Django",
+      "Python",
+      "Bootstrap",
+      "HTML",
+      "CSS"
+    ],
+    "size": "wide",
+    "demo": "https://37rohan.pythonanywhere.com/",
+    "category": "Web Dev",
+    "image": "/projects/textify.png"
   }
 ]
