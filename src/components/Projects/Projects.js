@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import projects from "./projects.json";
+import { getProjects } from "../../data/projectsStore";
 import "./ProjectsSection.css";
 import { BsGlobe, BsBoxes } from "react-icons/bs";
 import { MdHomeWork } from "react-icons/md";
@@ -34,7 +34,11 @@ const ProjectsSection = () => {
     <FaRibbon />,
     <BsBoxes />,
   ];
-  const projectRows = chunkArray(projects, 3);
+  const publishedProjects = getProjects().filter(
+    (p) => p.status === "published"
+  );
+
+  const projectRows = chunkArray(publishedProjects, 3);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 3500);
