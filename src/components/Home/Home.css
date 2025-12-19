@@ -4,7 +4,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +58,7 @@ h1 span {
 
 /* Typewriter Effect Text */
 .home-text h2 span {
-  color: #d136ca; /* Changed typewriter effect text color */
+  color: var(--accent-color); /* Changed typewriter effect text color */
   font-weight: bold;
 }
 
@@ -70,20 +71,24 @@ h1 span {
   display: flex;
   justify-content: center;
   gap: 10px;
+  max-width: 100%;
+  flex-wrap: nowrap;
+  overflow: hidden;   
 }
 
 /* Styling for individual icons */
 .social-icons a {
   font-size: 2rem;
+  padding: 12px;
   color: white;
   border: 2px solid transparent;
   border-radius: 50%;
-  padding: 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background-color: transparent;
   transition: all 0.3s ease;
+  line-height: 1;
 }
 
 /* Social icons in light theme should have black color */
@@ -145,72 +150,6 @@ body.dark-theme .linkedin:hover {
   color: white;
 }
 
-/* Loader Ball */
-.loader-ball {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #d136ca; /* Accent color for the ball */
-  position: fixed; /* Use fixed position to center the ball */
-  top: 50%;
-  left: 50%;
-  margin-left: -25px; /* Center the ball horizontally */
-  margin-top: -25px; /* Center the ball vertically */
-  animation: bounce-in 2s ease-in-out 2, expand-out 1.5s 2s forwards; /* Bounce 2-3 times then expand */
-  z-index: 9999; /* Ensure it's on top */
-  visibility: hidden; /* Hide the ball initially */
-}
-
-/* Bounce Animation for Ball (Bouncing 2-3 times) */
-@keyframes bounce-in {
-  0% {
-    transform: scale(0) translateY(-100px);
-    opacity: 1;
-  }
-  25% {
-    transform: scale(1.2) translateY(-20px);
-  }
-  50% {
-    transform: scale(1) translateY(0);
-  }
-  75% {
-    transform: scale(1.2) translateY(-10px);
-  }
-  100% {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Animation for Ball Expanding and Covering Screen */
-@keyframes expand-out {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(30);
-    opacity: 0;
-  }
-}
-
-/* Ball Expanding After Loading */
-.loader-ball.expand {
-  animation: expand-out 1.5s forwards; /* Expands and fades out */
-}
-
-/* Content Visibility After Loading */
-.content-visible {
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-}
-
-.hidden-content {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-
 /* Responsive adjustments for small screens */
 @media (max-width: 768px) {
   .home-text p {
@@ -237,7 +176,24 @@ body.dark-theme .linkedin:hover {
   }
 
   .social-icons a {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     padding: 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .social-icons a {
+    font-size: 1.5rem;  /* ✅ shrink further */
+    padding: 8px;
+  }
+}
+
+/* Disable hover effects on mobile */
+@media (hover: none) {
+  .home-text button:hover {
+    transform: none;
+    background-color: #d136ca;
+    color: white;
   }
 }

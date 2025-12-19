@@ -1,9 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./Education.css";
-import Experience from "../Experience/Experience"; // Import the Experience component
+import Experience from "../Experience/Experience";
 
 const Education = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1185);
   const educationData = [
     {
@@ -28,40 +27,27 @@ const Education = () => {
       description:
         "Focused on foundational programming skills and software development practices.",
     },
-    // Add more education entries as needed
   ];
+
   const cardsRef = useRef([]);
   const timelineRef = useRef(null);
   const [cardOffsets, setCardOffsets] = useState([]);
-
-  // Loading timer
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   // Handle window resize
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 1185);
-      if (!isLoading) {
-        calculateOffsets();
-      }
+      calculateOffsets();
     };
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [isSmallScreen, isLoading]);
+  }, []);
 
-  // Calculate offsets when isLoading changes
+  // Calculate offsets when component mounts or resizes
   useEffect(() => {
-    if (!isLoading) {
-      calculateOffsets();
-    }
-  }, [isLoading]);
+    calculateOffsets();
+  }, [isSmallScreen]);
 
   // Function to calculate card offsets and timeline height
   const calculateOffsets = () => {
@@ -75,16 +61,10 @@ const Education = () => {
       }
     });
     setCardOffsets(offsets);
-    timelineRef.current.style.height = `${cumulativeHeight}px`;
+    if (timelineRef.current) {
+      timelineRef.current.style.height = `${cumulativeHeight}px`;
+    }
   };
-
-  if (isLoading) {
-    return (
-      <div className="loading-container">
-        <div className="bouncing-ball" />
-      </div>
-    );
-  }
 
   return (
     <section className="education-section" aria-labelledby="education-title">
@@ -144,7 +124,7 @@ const Education = () => {
           </div>
         ))}
       </div>
-      <Experience /> {/* Add the Experience component here */}
+      <Experience />
     </section>
   );
 };

@@ -1,35 +1,40 @@
-// src/LoadingAnimation.js
+import React, { useEffect, useState, useContext } from "react";
+import { ThemeContext } from "./components/ParticleBackground/ThemeContext";
+import "./LoadingAnimation.css";
 
-import React, { useEffect, useState } from 'react';
-import './LoadingAnimation.css'; // Import the CSS file for styling
-
-const LoadingAnimation = () => {
+const LoadingAnimation = ({ children, duration = 3000 }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const { isDarkTheme } = useContext(ThemeContext);
 
   useEffect(() => {
-    // Simulating loading process
-    setTimeout(() => {
-      setIsLoading(false); // Hide loading after 2 seconds
-    }, 2000);
-  }, []);
+    document.body.style.overflow = "hidden";
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      document.body.style.overflow = "";
+    }, duration);
+
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = "";
+    };
+  }, [duration]);
+
+  const ballColor = isDarkTheme ? "#d136ca" : "#d136ca";
 
   return (
-    <div>
-      {/* Loading screen */}
+    <>
       {isLoading && (
-        <div className="loading-wrapper">
-          <div className="ball"></div>
+        <div className="loader-overlay">
+          <div
+            className="loader-ball"
+            style={{ backgroundColor: ballColor }}
+          ></div>
         </div>
       )}
 
-      {/* Content after loading */}
-      {!isLoading && (
-        <div className="content">
-          <h1>Website Content Loaded</h1>
-          <p>Welcome to my website!</p>
-        </div>
-      )}
-    </div>
+      {/* ✅ Render children only when loader is finished */}
+      {!isLoading && children}
+    </>
   );
 };
 

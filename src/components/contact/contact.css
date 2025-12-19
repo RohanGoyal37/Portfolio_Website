@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
   background: var(--bg-color);
   min-height: 100vh;
 }
 
 /* --- Heading Styles --- */
 .contact-heading {
-  font-size: 2.8rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 40px;
   background: linear-gradient(90deg, var(--accent-color), var(--accent-color));
@@ -24,67 +24,101 @@
 /* --- Map & Contact Info Section --- */
 .map-info-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
+  gap: 30px;
   width: 100%;
   max-width: 1200px;
-  margin: 30px auto;
+  margin: 40px auto;
+  flex-wrap: wrap; /* ✅ Makes it responsive */
 }
+
 
 .map-container,
 .contact-info {
   width: 48%;
 }
 
+/* --- Map Container --- */
 .map-container {
-  border-radius: 10px;
+  flex: 1;
+  min-width: 320px;
+  max-width: 600px;
+  border-radius: 16px;
   overflow: hidden;
-  margin-top: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6),
+              0 0 15px var(--accent-color);
 }
 
 /* --- Contact Info Items --- */
 .contact-info {
+  flex: 1;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-right: -110px;
+  gap: 20px;
 }
 
+
+/* --- Contact Info Items (Glass Card Style) --- */
 .contact-info-item {
   display: flex;
-  align-items: flex-start;
-  padding: 12px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  background: transparent;
-  color: var(--text-color);
-  font-size: 16px;
-  transition: all 0.3s ease;
+  align-items: center;
+  padding: 18px 22px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
+.contact-info-item:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+              0 0 15px rgba(255, 0, 255, 0.3);
+}
+
+/* --- Icon Styling (Prevent Stretching) --- */
 .contact-icon {
-  margin-right: 10px;
-  font-size: 20px;
-  color: var(--accent-color);
-  margin-top: 4px;
-}
-
-.contact-info-text {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff00f0, #00f0ff);
+  color: #fff;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem !important; /* fits better in the circle */
+  margin-right: 16px;
+  box-shadow: 0 0 12px rgba(255, 0, 255, 0.6),
+              0 0 20px rgba(0, 255, 255, 0.5);
 }
 
+/* --- Text Styling --- */
 .contact-info-text h4 {
   margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-color);
 }
 
 .contact-info-text p {
   margin: 4px 0 0;
   font-size: 1rem;
   color: var(--text-color);
+  opacity: 0.9;
 }
 
 /* --- "Let's Connect" Section --- */
@@ -99,38 +133,45 @@
   margin-bottom: 20px;
 }
 
-/* --- Grid Layout for Logo and Form --- */
+/* --- Form + Logo Container --- */
 .form-logo-container {
-  display: grid;
-  grid-template-columns: 30% 70%;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
-  max-width: 800px;
-  width: 100%;
+  justify-content: center;
+  gap: 40px;
+  max-width: 900px;
   margin: 0 auto;
+  padding: 30px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
 }
 
 .logo-container {
-  justify-self: start;
-}
-
-.contact-logo {
-  max-width: 200%;
-  height: auto;
-  border-radius: 8px;
-  margin-left: -260px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .form-container {
-  justify-self: end;
+  flex: 2;
+  width: 100%;
 }
 
 /* --- Contact Form Styles --- */
 .contact-form {
   display: flex;
   flex-direction: column;
-  width: 200%;
-  padding-right: 50px;
+  max-width: 600px;
+  width: 100%;
+  padding: 25px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
 }
 
 .contact-form input,
@@ -139,17 +180,18 @@
   padding: 12px;
   margin-bottom: 20px;
   border-radius: 8px;
-  border: 2px solid transparent;
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--text-color);
   font-size: 16px;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border: 2px solid var(--accent-color);
-  background: var(--box-hover);
+  border: 1px solid var(--accent-color);
+  background: rgba(255, 255, 255, 0.1);
   outline: none;
   box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
 }
@@ -160,60 +202,68 @@
   font-style: italic;
 }
 
-/* --- Button & Animated Icon --- */
+/* --- Button --- */
 .button-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center; /* ✅ Center button */
 }
 
 .contact-form button {
-  position: relative;
-  padding: 15px;
-  width: 240%;
+  position: relative;        /* ✅ Makes it the reference point */
+  overflow: visible;         /* So the plane can fly out */
+  padding: 12px 24px;
   background: var(--accent-color);
   border: none;
   color: var(--text-color);
   border-radius: 50px;
-  font-size: 2.2rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 140px;
 }
 
 .contact-form button:hover {
   background: var(--text-hover);
 }
 
-.button-icon {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  color: var(--text-color);
-  transform-origin: center;
-  opacity: 0;
-  animation: flyBird 2.5s ease-in-out forwards;
+/* --- Logo --- */
+.contact-logo {
+  max-width: 200px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* --- Keyframes for Animation --- */
+/* --- Button Animation --- */
+.button-icon {
+  position: absolute;
+  right: 15px;              /* ✅ Start near right side of button */
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  font-size: 22px;
+  color: var(--text-color);
+  opacity: 0;
+  animation: flyBird 2s ease-in-out forwards;
+}
+
 @keyframes flyBird {
   0% {
-    transform: translate(-50%, -50%) scale(0);
+    transform: translateY(-50%) scale(0);
     opacity: 1;
   }
-  50% {
-    transform: translate(150%, -150%) scale(1);
+  40% {
+    transform: translate(50px, -80px) scale(1);
     opacity: 1;
   }
-  75% {
-    transform: translate(300%, -300%) scale(1.8);
-    opacity: 0.8;
+  70% {
+    transform: translate(150px, -180px) scale(1.5);
+    opacity: 0.9;
   }
   100% {
-    transform: translate(600%, -600%) scale(3);
+    transform: translate(300px, -300px) scale(2);
     opacity: 0;
   }
 }
@@ -275,14 +325,10 @@
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
-  .map-info-container,
-  .form-logo-container {
-    margin: 0 20px;
-  }
-
   .map-info-container {
     flex-direction: column;
     align-items: center;
+    margin: 0 20px;
   }
 
   .map-container,
@@ -292,86 +338,29 @@
   }
 
   .form-logo-container {
-    grid-template-columns: 1fr;
-    width: 100%;
-  }
-
-  .logo-container,
-  .form-container {
-    justify-self: center;
-    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
   }
 
   .contact-logo {
-    max-width: 80%;
-    margin: 0 auto;
+    max-width: 120px;
   }
 
   .contact-form {
     width: 100%;
+    padding: 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+    padding: 10px;
   }
 
   .contact-social-icons {
-    position: relative;
-    bottom: auto;
     margin: 20px 0;
   }
 }
 
-/* --- Loading Animation --- */
-.loading-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--bg-color); /* Adjust for light/dark themes */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
 
-.bouncing-ball {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: var(--accent-color); /* Accent color */
-  animation: bounce-in 2s ease-in-out 2, expand-out 1.5s 2s forwards;
-}
-
-@keyframes bounce-in {
-  0% {
-    transform: scale(0) translateY(-100px);
-    opacity: 1;
-  }
-  25% {
-    transform: scale(1.2) translateY(-20px);
-  }
-  50% {
-    transform: scale(1) translateY(0);
-  }
-  75% {
-    transform: scale(1.2) translateY(-10px);
-  }
-  100% {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes expand-out {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(30);
-    opacity: 0;
-  }
-}
-
-/* Ball Expanding After Loading */
-.loader-ball.expand {
-  animation: expand-out 1.5s forwards; /* Expands and fades out */
-}

@@ -1,86 +1,221 @@
 [
   {
-    "name": "Portfolio Website",
-    "link": "https://github.com/37rohan/Portfolio_Website",
+    "name": "AYRA - AI Voice Assistant",
+    "link": "https://github.com/rohangoyal37/ayra",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "AYRA is an intelligent AI voice assistant with hybrid NLP intent recognition and multi-engine speech processing. It integrates with Google's Gemini Pro for natural, human-like conversational responses",
+    "technologies": [
+      "Python",
+      "Google Gemini AI",
+      "TensorFlow",
+      "scikit-learn",
+      "Speech Recognition",
+      "NLP"
+    ],
+    "size": "tall",
+    "category": "AI/ML",
+    "image": "/projects/Ayra.png"
+  },
+  {
+    "name": "Blog Platform",
+    "link": "https://github.com/RohanGoyal37/Blog_Platform",
+    "linkType": "View Code",
+    "description": "A full-stack blogging website for creating, editing, and sharing posts with user authentication and comment functionality.",
+    "technologies": [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "size": "square",
+    "category": "Web Dev",
+    "image": "/projects/blogging_website.png"
+  },
+  {
+    "name": "Portfolio Website",
+    "link": "https://github.com/RohanGoyal37/Portfolio_Website",
+    "linkType": "View Code",
+    "description": "Personal portfolio website to showcase my projects, skills, and experience. Built with React and TypeScript.",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "CSS",
+      "HTML"
+    ],
+    "size": "tall",
+    "demo": "https://this-is-rohan-goyal.vercel.app/",
+    "category": "Web Dev",
+    "image": "/projects/portfolio.png"
   },
   {
     "name": "Used Car Price Prediction",
-    "link": "https://github.com/37rohan/Used_Car_Price_Prediction",
+    "link": "https://github.com/RohanGoyal37/Used_Car_Price_Prediction",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "Machine learning project to predict used car prices based on various features using regression models.",
+    "technologies": [
+      "Python",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Matplotlib"
+    ],
+    "size": "wide",
+    "category": "AI/ML",
+    "image": "/projects/used_car_model.png"
   },
   {
     "name": "Housing Analysis in Brazil",
-    "link": "https://github.com/37rohan/Housing-in-Brazil",
+    "link": "https://github.com/RohanGoyal37/Housing-in-Brazil",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "Data analysis project exploring housing trends and prices in Brazil using Python and visualization libraries.",
+    "technologies": [
+      "Python",
+      "Pandas",
+      "Matplotlib",
+      "Seaborn"
+    ],
+    "size": "square",
+    "category": "Data Analytics",
+    "image": "/projects/housing_in_brazil.png"
   },
   {
     "name": "Faulty Calculator",
-    "link": "https://github.com/37rohan/Faulty_Calculator",
+    "link": "https://github.com/RohanGoyal37/Faulty_Calculator",
     "linkType": "View Code",
-    "description": "A dashboard using Python's Dash framework to visualize complex datasets.",
-    "technologies": ["Python", "Dash", "Plotly", "Pandas"]
+    "description": "A fun calculator app that sometimes gives incorrect results on purpose, built with Python.",
+    "technologies": [
+      "Python"
+    ],
+    "size": "tall",
+    "category": "Fun",
+    "image": null
   },
   {
     "name": "Guessing a Number",
-    "link": "https://github.com/37rohan/Guessing_a_Number",
+    "link": "https://github.com/RohanGoyal37/Guessing_a_Number",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "A simple number guessing game implemented in Python for practicing logic and loops.",
+    "technologies": [
+      "Python"
+    ],
+    "size": "wide",
+    "category": "Fun",
+    "image": "/projects/guess_number.png"
   },
   {
     "name": "Weather Info",
-    "link": "https://github.com/37rohan/Weather_App",
+    "link": "https://github.com/RohanGoyal37/Weather_App",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "A React app that fetches and displays real-time weather information for any city.",
+    "technologies": [
+      "Python",
+      "OpenWeather API"
+    ],
+    "size": "square",
+    "category": "Automation & Scripts",
+    "image": "/projects/weather.png"
   },
   {
     "name": "Olympic Analysis",
-    "link": "https://github.com/37rohan/Olympic_Analysis",
+    "link": "https://github.com/RohanGoyal37/Olympic_Analysis",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "Data analysis and visualization of Olympic Games statistics using Python and Pandas.",
+    "technologies": [
+      "Python",
+      "Pandas",
+      "Matplotlib",
+      "Seaborn"
+    ],
+    "size": "tall",
+    "category": "Data Analytics",
+    "image": "/projects/olympics_analysis.png"
   },
   {
     "name": "Text Summarizer",
-    "link": "https://github.com/rohangoyal",
+    "link": "https://github.com/RohanGoyal37/Text_Summarizer",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "A tool that uses NLP techniques to automatically summarize long pieces of text.",
+    "technologies": [
+      "Python",
+      "NLTK",
+      "Scikit-learn",
+      "NLU"
+    ],
+    "size": "square",
+    "category": "AI/ML",
+    "image": "/projects/ai_summary.png"
   },
   {
     "name": "Snake Water Gun Game",
-    "link": "https://github.com/37rohan/Snake_Water_Gun_Game",
+    "link": "https://github.com/RohanGoyal37/Snake_Water_Gun_Game",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "A Python implementation of the classic Snake Water Gun game (like Rock Paper Scissors).",
+    "technologies": [
+      "Python"
+    ],
+    "size": "tall",
+    "category": "Fun",
+    "image": "/projects/snake_water_gun.png"
   },
   {
     "name": "Dynamic Student Enrollment Form",
-    "link": "https://github.com/37rohan/Dynamic_Student_Enrollment_Form",
+    "link": "https://github.com/RohanGoyal37/Dynamic_Student_Enrollment_Form",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "A dynamic React form for enrolling students, featuring validation and real-time feedback.",
+    "technologies": [
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "JsonPower DB"
+    ],
+    "size": "square",
+    "category": "Web Dev",
+    "image": "/projects/student_form.png"
   },
   {
     "name": "Breast Cancer Prediction",
-    "link": "https://github.com/37rohan/Breast_Cancer_Prediction",
+    "link": "https://github.com/RohanGoyal37/Breast_Cancer_Prediction",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "A machine learning project to predict breast cancer using classification algorithms.",
+    "technologies": [
+      "Python",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Matplotlib"
+    ],
+    "size": "wide",
+    "category": "AI/ML",
+    "image": "/projects/breast_cancer.png"
   },
   {
     "name": "Inventory Management System",
-    "link": "https://github.com/37rohan/Inventory_Management_System",
+    "link": "https://github.com/RohanGoyal37/Inventory_Management_System",
     "linkType": "View Code",
-    "description": "This very website built with React and TypeScript.",
-    "technologies": ["React", "TypeScript", "CSS", "HTML"]
+    "description": "A web-based inventory management system to track products, stock, and orders.",
+    "technologies": [
+      "Python",
+      "JSON"
+    ],
+    "size": "square",
+    "category": "Automation & Scripts",
+    "image": "/projects/IMS.png"
+  },
+  {
+    "name": "Textify",
+    "link": "https://github.com/RohanGoyal37/Textify",
+    "linkType": "View Code",
+    "description": "Textify is a simple Django web app that helps you clean and format text quickly. Perform actions like removing punctuation, converting to uppercase, trimming spaces, and counting characters in one click.",
+    "technologies": [
+      "Django",
+      "Python",
+      "Bootstrap",
+      "HTML",
+      "CSS"
+    ],
+    "size": "wide",
+    "demo": "https://37rohan.pythonanywhere.com/",
+    "category": "Web Dev",
+    "image": "/projects/textify.png"
   }
 ]
