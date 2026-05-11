@@ -60,6 +60,7 @@
       "Matplotlib"
     ],
     "size": "wide",
+     "demo": "https://used-car-price-predictionmodel.streamlit.app/",
     "category": "AI/ML",
     "image": "/projects/used_car_model.png"
   },
