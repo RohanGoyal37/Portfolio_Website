@@ -305,6 +305,19 @@
   transform: scale(1.2);
 }
 
+/* Brand Hover Colors */
+body.light-theme .facebook:hover { color: #1a4195; }
+body.light-theme .github:hover { color: #333; }
+body.light-theme .x-icon:hover { color: #000; }
+body.light-theme .instagram:hover { color: #b52354; }
+body.light-theme .linkedin:hover { color: #013d5d; }
+
+body.dark-theme .facebook:hover { color: #2b4d97; }
+body.dark-theme .github:hover { color: #fff; }
+body.dark-theme .x-icon:hover { color: #fff; }
+body.dark-theme .instagram:hover { color: #c72b5f; }
+body.dark-theme .linkedin:hover { color: #016296; }
+
 /* --- Footer --- */
 .contact-footer {
   text-align: center;

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./components/Home/Home";
 import About from "./components/Aboutme/AboutMe";
@@ -9,10 +9,9 @@ import Contact from "./components/contact/contact";
 import AllCertifications from "./components/Certification/AllCertifications";
 import Projects from "./components/Projects/Projects";
 import Education from "./components/Education/Education";
-// import Footer from "./components/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import { ThemeProvider, ThemeContext } from "./components/ParticleBackground/ThemeContext";
-import LoadingAnimation from "./LoadingAnimation";  // ✅ import loader
+import LoadingAnimation from "./LoadingAnimation";
 import "./App.css";
 
 // Admin imports
@@ -24,10 +23,11 @@ import ExperienceAdmin from "./admin/experience/ExperienceAdmin";
 import ProjectEditor from "./admin/projects/ProjectEditor";
 import ExperienceEditor from "./admin/experience/ExperienceEditor";
 
-
 const AppContent = () => {
   const [activeSection, setActiveSection] = useState("home");
   const { isDarkTheme } = useContext(ThemeContext);
+  const location = useLocation();
+  const isAdminPath = location.pathname.startsWith("/admin");
 
   const themeVariants = {
     initial: { opacity: 0, scale: 0.98, filter: "brightness(1.2)" },
@@ -36,7 +36,7 @@ const AppContent = () => {
   };
 
   return (
-    <LoadingAnimation duration={3000}>  {/* ✅ Wrap whole app */}
+    <LoadingAnimation duration={3000}>
       <AnimatePresence mode="wait">
         <motion.div
           key={isDarkTheme ? "dark" : "light"}
@@ -48,8 +48,10 @@ const AppContent = () => {
           style={{ minHeight: "100vh" }}
         >
           <div className="App">
-            <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-            <div className="content-section">
+            {!isAdminPath && (
+              <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
+            )}
+            <div className={isAdminPath ? "" : "content-section"}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
@@ -60,17 +62,16 @@ const AppContent = () => {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/connect" element={<Contact />} />
 
-                {/* ===== ADMIN ROUTES (NEW) ===== */}
-              <Route path="/admin/login" element={<AdminLogin />} />
+                {/* ===== ADMIN ROUTES ===== */}
+                <Route path="/admin/login" element={<AdminLogin />} />
 
-              <Route path="/admin" element={<AdminLayout />}>
-                <Route index element={<Dashboard />} />
-                <Route path="projects" element={<ProjectsAdmin />} />
-                <Route path="experience" element={<ExperienceAdmin />} />
-                <Route path="projects/:id" element={<ProjectEditor />} />
-                <Route path="experience/:id" element={<ExperienceEditor />} />
-
-              </Route>
+                <Route path="/admin" element={<AdminLayout />}>
+                  <Route index element={<Dashboard />} />
+                  <Route path="projects" element={<ProjectsAdmin />} />
+                  <Route path="experience" element={<ExperienceAdmin />} />
+                  <Route path="projects/:id" element={<ProjectEditor />} />
+                  <Route path="experience/:id" element={<ExperienceEditor />} />
+                </Route>
               </Routes>
             </div>
           </div>

@@ -112,6 +112,14 @@ body.light-theme .linkedin:hover {
   color: #013d5d;
 }
 
+body.light-theme .github:hover {
+  color: #333;
+}
+
+body.light-theme .x-icon:hover {
+  color: #000;
+}
+
 
 body.dark-theme .social-icons a:hover {
   transform: scale(1.1);
@@ -127,6 +135,14 @@ body.dark-theme .instagram:hover {
 
 body.dark-theme .linkedin:hover {
   color: #016296;
+}
+
+body.dark-theme .github:hover {
+  color: #fff;
+}
+
+body.dark-theme .x-icon:hover {
+  color: #fff;
 }
 
 /* Button Styling */
