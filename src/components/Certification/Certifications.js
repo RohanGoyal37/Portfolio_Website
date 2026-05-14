@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import "./Certifications.css";
 import certificationsData from "./certifications.json";
 
@@ -10,6 +11,8 @@ const Certifications = ({ limit }) => {
   useEffect(() => {
     const handleScroll = () => {
       const certificationsContainer = certificationsRef.current;
+      if (!certificationsContainer) return;
+
       const certifications = certificationsContainer.querySelectorAll(
         ".certification-card"
       );
@@ -33,7 +36,7 @@ const Certifications = ({ limit }) => {
         const heading = certificationsContainer.querySelector(
           ".certifications-title"
         );
-        heading.style.animation = `slideDown 1.5s ease forwards`;
+        if (heading) heading.style.animation = `slideDown 1.5s ease forwards`;
       } else {
         // Certifications are not in view, hide them
         certifications.forEach((cert, index) => {
@@ -45,7 +48,7 @@ const Certifications = ({ limit }) => {
         const heading = certificationsContainer.querySelector(
           ".certifications-title"
         );
-        heading.style.animation = `fadeOut 1.5s ease forwards`;
+        if (heading) heading.style.animation = `fadeOut 1.5s ease forwards`;
       }
     };
 
@@ -57,9 +60,18 @@ const Certifications = ({ limit }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [showModal]);
+
   const closeModal = () => {
     setShowModal(false);
     setSelectedCertification(null);
+    document.body.style.overflow = "unset";
   };
 
   return (
@@ -90,8 +102,8 @@ const Certifications = ({ limit }) => {
         ))}
       </div>
 
-      {showModal && selectedCertification && (
-        <div className="modal">
+      {showModal && selectedCertification && createPortal(
+        <div className="modal" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-modal" onClick={closeModal}>
               ×
@@ -128,7 +140,8 @@ const Certifications = ({ limit }) => {
                 />
               ))}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
