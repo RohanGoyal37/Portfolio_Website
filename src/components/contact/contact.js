@@ -190,7 +190,6 @@ const Contact = () => {
         </div>
       </motion.div>
 
-      {/* Social Icons */}
       <motion.div
         className="contact-social-icons"
         variants={fadeInUp}
@@ -198,19 +197,19 @@ const Contact = () => {
         animate="visible"
         custom={1}
       >
-        <a href="https://www.facebook.com/RohannGoyal37" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.facebook.com/RohannGoyal37" target="_blank" rel="noopener noreferrer" className="facebook">
           <FaFacebook size={30} />
         </a>
-        <a href="https://github.com/RohanGoyal37" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/RohanGoyal37" target="_blank" rel="noopener noreferrer" className="github">
           <FaGithub size={30} />
         </a>
-        <a href="https://x.com/RohanGoyal37" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/RohanGoyal37" target="_blank" rel="noopener noreferrer" className="x-icon">
           <FaXTwitter size={30} />
         </a>
-        <a href="https://instagram.com/rohan_agarwal_37" target="_blank" rel="noopener noreferrer">
+        <a href="https://instagram.com/rohan_agarwal_37" target="_blank" rel="noopener noreferrer" className="instagram">
           <FaInstagram size={30} />
         </a>
-        <a href="https://www.linkedin.com/in/rohan-agarwal37" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/rohan-agarwal37" target="_blank" rel="noopener noreferrer" className="linkedin">
           <FaLinkedin size={30} />
         </a>
       </motion.div>

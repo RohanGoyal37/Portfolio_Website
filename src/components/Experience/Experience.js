@@ -1,55 +1,62 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import "./Experience.css";
+import { getExperience } from "../../data/experienceStore";
 
 const Experience = () => {
+  const [experienceData, setExperienceData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedExperience, setSelectedExperience] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
-  const experienceData = [
-    {
-      company: "Perficient Placements",
-      position: "Python Developer ",
-      duration: "Jul 2024 - Present",
-      description: [
-        "Build and maintain scalable data pipelines using Python, SQL, and Apache Spark to process 5M+ records weekly, increasing data availability and reducing report latency by 30%.",
-        "Integrate ML models into Python workflows for churn prediction and sales forecasting, boosting automation efficiency by 25%.",
-        "Optimize 100+ SQL queries and Spark jobs, reducing data processing time by 40% and enabling analysts to generate insights 2x faster.",
-      ],
-    },
-    {
-      company: "Nefroverse",
-      position: "Python Developer",
-      duration: "Apr 2023 - Jul 2024",
-      description: [
-        "Developed Python scripts to automate data processing and feed real-time metrics into dashboards, improving data visibility by 35%.",
-        "Built and maintained ETL workflows with Python and SQL, reducing manual data handling by 50% and improving accuracy across reporting systems.",
-        "Collaborated with analysts to integrate backend data pipelines with BI tools, reducing reporting delays by 40% and accelerating decision-making cycles.",
-      ],
-    },
-    {
-      company: "Elite Techno Groups",
-      position: "Python AI/ML Intern",
-      duration: "Aug 2021 - Sept 2021",
-      description: [
-        "Developed a Python-based Inventory Management System using JSON for data handling, reinforcing core programming skills and backend logic design.",
-        "Performed exploratory data analysis on Olympic dataset using Pandas and NumPy to identify patterns and trends across sports and nations.",
-        "Built a Breast Cancer Detection model using supervised learning algorithms and basic deep learning techniques, gaining hands-on exposure to ML model training, evaluation, and prediction workflows.",
-      ],
-    },
-  ];
+  useEffect(() => {
+    const fetchExperience = async () => {
+      const data = await getExperience();
+      const published = data.filter((e) => e.status === "published");
+      
+      // Helper to parse duration and get a sortable date
+      const getSortDate = (duration) => {
+        if (!duration) return 0;
+        const yearMatch = duration.match(/\d{4}/);
+        if (!yearMatch) return 0;
+        const year = parseInt(yearMatch[0]);
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        let monthIndex = months.findIndex(m => duration.toLowerCase().includes(m.toLowerCase()));
+        return new Date(year, monthIndex === -1 ? 0 : monthIndex).getTime();
+      };
+
+      // Sort by date descending (latest first)
+      const sorted = published.sort((a, b) => getSortDate(b.duration) - getSortDate(a.duration));
+      
+      setExperienceData(sorted);
+      setLoading(false);
+    };
+    fetchExperience();
+  }, []);
 
   useEffect(() => {
     if (selectedExperience) {
       setTimeout(() => setShowModal(true), 50);
+      document.body.style.overflow = "hidden"; // Prevent background scroll
     } else {
       setShowModal(false);
+      document.body.style.overflow = "unset";
     }
   }, [selectedExperience]);
 
   const closeModal = () => {
     setShowModal(false);
+    document.body.style.overflow = "unset";
     setTimeout(() => setSelectedExperience(null), 400);
   };
+
+  if (loading) {
+    return (
+      <section className="experience-section">
+        <p style={{ textAlign: 'center', color: 'var(--admin-text-dim)' }}>Loading Experience...</p>
+      </section>
+    );
+  }
 
   return (
     <section className="experience-section">
@@ -60,7 +67,7 @@ const Experience = () => {
             <div className="experience-card-inner">
               <div className="experience-card-front">
                 <h3 className="company-name">{exp.company}</h3>
-                <h4 className="position-name">{exp.position}</h4>
+                <h4 className="position-name">{exp.role || exp.position}</h4>
                 <p className="experience-description">{exp.duration}</p>
               </div>
               <div className="experience-card-back">
@@ -76,8 +83,8 @@ const Experience = () => {
         ))}
       </div>
 
-      {/* Modal for Detailed View */}
-      {selectedExperience && (
+      {/* Modal for Detailed View using React Portal */}
+      {selectedExperience && createPortal(
         <div
           className={`experience-modal ${showModal ? "active" : ""}`}
           onClick={closeModal}
@@ -95,16 +102,20 @@ const Experience = () => {
               <div className="duration">{selectedExperience.duration}</div>
             </div>
 
-            <h3>{selectedExperience.position}</h3>
+            <h3>{selectedExperience.role || selectedExperience.position}</h3>
 
             {/* Display description as bullet points */}
             <ul className="experience-points">
-              {selectedExperience.description.map((desc, index) => (
-                <li key={index}>{desc}</li>
-              ))}
+              {Array.isArray(selectedExperience.description) ? 
+                selectedExperience.description.map((desc, index) => (
+                  <li key={index}>{desc}</li>
+                )) : 
+                <li>{selectedExperience.description}</li>
+              }
             </ul>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
