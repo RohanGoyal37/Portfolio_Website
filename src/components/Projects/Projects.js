@@ -148,6 +148,9 @@ const ProjectsSection = () => {
                 }}
               >
                 <div className="project-img-wrapper">
+                  {project.privateRepo && (
+                    <div className="private-repo-ribbon">Private Repo</div>
+                  )}
                   <img
                     src={project.image ? (project.image.startsWith('http') ? project.image : process.env.PUBLIC_URL + project.image) : process.env.PUBLIC_URL + "/projects/default.png"}
                     alt={project.name}
@@ -196,4 +199,4 @@ const ProjectsSection = () => {
   );
 };
 
-export default ProjectsSection;
+export default ProjectsSection;

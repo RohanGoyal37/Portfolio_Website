@@ -23,7 +23,8 @@ export default function ProjectEditor() {
     category: "",
     status: "draft",
     size: "square",
-    image: ""
+    image: "",
+    privateRepo: false
   });
 
   useEffect(() => {
@@ -239,6 +240,16 @@ export default function ProjectEditor() {
                     onChange={e => updateField("link", e.target.value)}
                     placeholder="https://github.com/..."
                   />
+                </div>
+                <div className="input-group checkbox-group">
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      checked={form.privateRepo}
+                      onChange={e => updateField("privateRepo", e.target.checked)}
+                    />
+                    Private Repo
+                  </label>
                 </div>
                 <div className="input-group">
                   <label><FiGlobe /> Live Demo</label>
